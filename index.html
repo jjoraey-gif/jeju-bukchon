@@ -398,6 +398,7 @@
   <button class="next" aria-label="다음">›</button>
 </div>
 
+<script src="config.js"></script>
 <script src="bookings.js"></script>
 <script>
 /* ---------- 사진 더보기 ---------- */
@@ -506,8 +507,17 @@ document.querySelectorAll('[data-more]').forEach(btn=>{
     document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
     render();
   });
+  async function loadSupabase(){
+    const C=window.SUPABASE_CONFIG; if(!C||!C.url||!C.anonKey) return;
+    try{
+      const r=await fetch(`${C.url}/rest/v1/bukchon_blocked_dates?select=house,day&day=gte.${key(today)}&limit=5000`,
+        {headers:{apikey:C.anonKey,Authorization:`Bearer ${C.anonKey}`}});
+      const rows=await r.json();
+      (Array.isArray(rows)?rows:[]).forEach(x=>{ if(booked[x.house]) booked[x.house].add(x.day); });
+    }catch(err){console.warn('예약 현황 불러오기 실패',err);}
+  }
   loadLocal(); render();
-  loadGoogle().then(render);
+  Promise.all([loadSupabase(),loadGoogle()]).then(render);
 })();
 </script>
 </body>
