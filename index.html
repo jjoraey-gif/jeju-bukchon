@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>북촌사랑각 · 제주 북촌리 독채 타운하우스</title>
+<meta name="description" content="제주시 조천읍 북촌리, 함덕해수욕장 5분 거리의 독채 타운하우스 '지금여기북촌'과 '북촌책방'. 예약 문의는 문자로 주세요.">
+<meta property="og:title" content="북촌사랑각 · 제주 북촌리 독채 타운하우스">
+<meta property="og:description" content="함덕해수욕장 5분, 바다가 보이는 2층 독채 '지금여기북촌'과 책이 가득한 '북촌책방'">
+<meta property="og:image" content="images/sarang/15.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2; --surface:#ffffff; --ink:#26302e; --muted:#6b7672; --line:#e6e0d6;
+    --sea:#2f6f73; --sea-soft:#e3efee; --sand:#efe6d8; --accent:#c9774a;
+    --booked:#ece8e2; --booked-ink:#b3aca2;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",system-ui,sans-serif;line-height:1.7;word-break:keep-all}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .serif{font-family:"Gowun Batang",serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:20;background:rgba(250,247,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:12px}
+  .brand{font-family:"Gowun Batang",serif;font-weight:700;font-size:20px;text-decoration:none;letter-spacing:-.02em}
+  .nav-links{display:flex;gap:18px;font-size:14.5px}
+  .nav-links a{text-decoration:none;color:var(--muted)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{background:var(--sea);color:#fff!important;padding:7px 14px;border-radius:999px}
+  @media (max-width:640px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* hero */
+  .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.6))}
+  .hero .wrap{position:relative;z-index:1;padding-bottom:56px;width:100%}
+  .hero p.kicker{margin:0 0 6px;font-size:14px;letter-spacing:.12em;opacity:.9}
+  .hero h1{font-family:"Gowun Batang",serif;font-size:clamp(34px,6vw,56px);margin:0 0 10px;line-height:1.25;font-weight:700}
+  .hero p.lead{margin:0 0 22px;font-size:clamp(15px,2.2vw,18px);max-width:560px;opacity:.95}
+  .hero .btns{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px;border:1px solid transparent}
+  .btn-primary{background:#fff;color:var(--ink)}
+  .btn-ghost{border-color:rgba(255,255,255,.7);color:#fff}
+
+  /* intro */
+  section{padding:80px 0}
+  .eyebrow{color:var(--sea);font-size:13px;letter-spacing:.14em;font-weight:700;margin:0 0 8px}
+  h2{font-family:"Gowun Batang",serif;font-size:clamp(26px,4vw,36px);margin:0 0 14px;line-height:1.35}
+  .intro-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:32px}
+  .house-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;transition:transform .2s}
+  .house-card:hover{transform:translateY(-3px)}
+  .house-card img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .house-card div{padding:18px 20px 22px}
+  .house-card h3{font-family:"Gowun Batang",serif;margin:0 0 4px;font-size:22px}
+  .house-card p{margin:0;color:var(--muted);font-size:15px}
+  @media (max-width:720px){.intro-grid{grid-template-columns:1fr}}
+
+  .location-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .chip{background:var(--sea-soft);color:var(--sea);padding:6px 12px;border-radius:999px;font-size:14px}
+
+  /* house section */
+  .house{border-top:1px solid var(--line)}
+  .house.alt{background:var(--sand)}
+  .house-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+  .house-head p{margin:0 0 14px}
+  @media (max-width:820px){.house-head{grid-template-columns:1fr;gap:24px}}
+  .facts{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:6px 20px}
+  .facts dl{margin:0;display:grid;grid-template-columns:96px 1fr}
+  .facts dt,.facts dd{padding:12px 0;border-bottom:1px solid var(--line);margin:0;font-size:15px}
+  .facts dt{color:var(--muted)}
+  .facts dl > :nth-last-child(-n+2){border-bottom:0}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+  .badge{background:#fff4ea;color:#9a5530;border:1px solid #f0d9c6;padding:5px 11px;border-radius:999px;font-size:13.5px}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:40px}
+  .gallery figure{margin:0;position:relative;border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--line);aspect-ratio:1/1}
+  .gallery figure.big{grid-column:span 2;grid-row:span 2}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .gallery figure:hover img{transform:scale(1.04)}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 9px;font-size:13px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+  .gallery .more{display:none}
+  .gallery.open .more{display:block}
+  .more-btn{margin:16px auto 0;display:block;background:none;border:1px solid var(--ink);color:var(--ink);padding:10px 22px;border-radius:999px;font:inherit;font-size:14.5px;cursor:pointer}
+  @media (max-width:720px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+  /* rooms */
+  .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .room{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+  .room h4{margin:0 0 6px;font-size:16px}
+  .room p{margin:0;font-size:14.5px;color:var(--muted)}
+  @media (max-width:820px){.rooms{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.rooms{grid-template-columns:1fr}}
+
+  /* reviews */
+  .reviews{margin-top:40px}
+  .reviews h3{font-family:"Gowun Batang",serif;font-size:20px;margin:0 0 14px}
+  .review-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .review-row img{flex:0 0 auto;width:300px;height:auto;max-height:260px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:10px;scroll-snap-align:start;cursor:zoom-in}
+
+  /* calendar */
+  #calendar{background:var(--surface)}
+  .tabs{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;margin:20px 0 26px}
+  .tabs button{border:0;background:none;font:inherit;font-size:15px;padding:8px 18px;border-radius:999px;cursor:pointer;color:var(--muted)}
+  .tabs button[aria-selected="true"]{background:var(--sea);color:#fff}
+  .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .cal-nav button{border:1px solid var(--line);background:var(--surface);width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--ink)}
+  .cal-nav button:disabled{opacity:.3;cursor:default}
+  .months{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:860px;margin:0 auto}
+  @media (max-width:720px){.months{grid-template-columns:1fr}}
+  .month h4{text-align:center;margin:0 0 10px;font-size:17px}
+  .grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+  .grid7 .dow{font-size:12.5px;color:var(--muted);padding:4px 0}
+  .grid7 .dow:first-child{color:#c0504d}
+  .day{height:42px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:14.5px;background:var(--sea-soft);color:var(--sea);font-weight:500}
+  .day.empty{background:none}
+  .day.past{background:none;color:#cfcac2;font-weight:400}
+  .day.booked{background:var(--booked);color:var(--booked-ink);text-decoration:line-through;font-weight:400}
+  .day.today{outline:2px solid var(--accent);outline-offset:-2px}
+  .legend{display:flex;gap:18px;justify-content:center;margin-top:20px;font-size:13.5px;color:var(--muted)}
+  .legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .legend .l-free::before{background:var(--sea-soft);border:1px solid var(--sea)}
+  .legend .l-booked::before{background:var(--booked)}
+  .cal-note{text-align:center;color:var(--muted);font-size:14px;margin-top:10px}
+
+  /* contact */
+  #contact{background:var(--sea);color:#fff;text-align:center}
+  #contact .eyebrow{color:#bfe0dd}
+  .phone{font-size:clamp(30px,6vw,46px);font-weight:700;letter-spacing:.02em;margin:10px 0 6px;text-decoration:none;display:inline-block}
+  #contact p{opacity:.9;margin:0 0 24px}
+  #contact .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  #contact .btn-primary{color:var(--sea)}
+  .contact-tips{max-width:520px;margin:30px auto 0;text-align:left;background:rgba(255,255,255,.1);border-radius:var(--radius);padding:16px 22px;font-size:14.5px}
+  .contact-tips ul{margin:6px 0 0;padding-left:18px}
+
+  footer{padding:30px 0 90px;text-align:center;color:var(--muted);font-size:13px}
+
+  /* floating sms (mobile) */
+  .fab{position:fixed;right:16px;bottom:16px;z-index:30;background:var(--accent);color:#fff;text-decoration:none;padding:13px 20px;border-radius:999px;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.18);display:none}
+  @media (max-width:720px){.fab{display:inline-block}}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;background:rgba(10,12,12,.92);z-index:50;display:none;align-items:center;justify-content:center;flex-direction:column}
+  .lb.on{display:flex}
+  .lb img{max-width:92vw;max-height:80vh;border-radius:6px}
+  .lb p{color:#eee;margin:12px 0 0;font-size:14.5px}
+  .lb button{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer}
+  .lb .x{top:16px;right:16px}
+  .lb .prev{left:12px;top:50%}
+  .lb .next{right:12px;top:50%}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">북촌사랑각</a>
+    <nav class="nav-links">
+      <a href="#jigeum">지금여기북촌</a>
+      <a href="#bookstore">북촌책방</a>
+      <a href="#calendar">예약현황</a>
+      <a class="nav-cta" href="#contact">예약문의</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top" style="padding:0">
+  <img src="images/sarang/01.jpg" alt="창밖으로 초록 정원이 보이는 지금여기북촌 거실">
+  <div class="wrap">
+    <p class="kicker">JEJU · BUKCHON-RI</p>
+    <h1>제주 북촌리,<br>우리 가족만의 2층 집</h1>
+    <p class="lead">함덕해수욕장 차로 5분. 바다가 보이는 독채 타운하우스에서 한 주, 한 달 머물러 보세요.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#calendar">예약 가능일 보기</a>
+      <a class="btn btn-ghost" href="#contact">문자로 문의하기</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">OUR HOUSES</p>
+    <h2>두 채의 독채, 같은 마을</h2>
+    <p style="max-width:640px;color:var(--muted);margin:0">제주시 조천읍 북촌리 타운하우스 단지에 있는 2층 독채 두 곳을 운영하고 있습니다. 공항에서 차로 30분, 함덕과 김녕 바다 사이라 제주 동쪽 여행의 거점으로 좋아요.</p>
+    <div class="location-strip">
+      <span class="chip">함덕해수욕장 5분</span>
+      <span class="chip">김녕해수욕장 10분</span>
+      <span class="chip">런던베이글 3분</span>
+      <span class="chip">시내 소아과 15분</span>
+      <span class="chip">비자림 25분</span>
+      <span class="chip">제주공항 30분</span>
+    </div>
+    <div class="intro-grid">
+      <a class="house-card" href="#jigeum">
+        <img src="images/sarang/15.jpg" alt="지금여기북촌 외관" loading="lazy">
+        <div><h3>지금여기북촌</h3><p>2층 침실에서 바다가 보이는 집 · 최대 6인</p></div>
+      </a>
+      <a class="house-card" href="#bookstore">
+        <img src="images/bookstore/14.jpg" alt="북촌책방 계단 옆 책장" loading="lazy">
+        <div><h3>북촌책방</h3><p>책장 가득한 계단과 정원 데크가 있는 집</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 지금여기북촌 ================= -->
+<section class="house" id="jigeum">
+  <div class="wrap">
+    <div class="house-head">
+      <div>
+        <p class="eyebrow">HOUSE 01</p>
+        <h2>지금여기북촌</h2>
+        <p>북촌리 오션타운하우스 단지의 앞동에 자리한 2층 독채입니다. 앞을 가리는 건물이 없어 2층 침실에서 바다가 그대로 보이고, 테라스에서는 해 질 녘 노을을 감상하실 수 있어요.</p>
+        <p>1층에는 거실과 주방, 화장실, 그리고 우리 집만 쓰는 야외 데크가 있어 가족끼리 바비큐를 즐기기 좋습니다. 2층에는 침실 두 개와 화장실, 테라스가 있습니다.</p>
+        <p>아이와 함께 오시는 가족을 위해 계단 안전문, 아기 욕조, 유아용 식탁의자를 갖춰 두었고, 계단에는 미끄럼 방지 테이프를 붙여 두었습니다.</p>
+        <div class="badges">
+          <span class="badge">계단 안전문</span><span class="badge">아기 욕조</span><span class="badge">유아용 식탁의자</span><span class="badge">전용 바비큐 데크</span><span class="badge">세탁기 2대 + 건조기</span>
+        </div>
+      </div>
+      <div class="facts">
+        <dl>
+          <dt>위치</dt><dd>제주시 조천읍 북촌리</dd>
+          <dt>구조</dt><dd>2층 독채 타운하우스 · 32평</dd>
+          <dt>1층</dt><dd>거실, 주방, 화장실, 야외 데크</dd>
+          <dt>2층</dt><dd>침실 2, 화장실, 테라스</dd>
+          <dt>인원</dt><dd>최대 6인</dd>
+          <dt>편의시설</dt><dd>가스레인지, 전자레인지, 냉장고, 전기주전자, 기본 조리도구, 식탁, 세탁기 2대, 건조기, 청소기, 바비큐 도구</dd>
+          <dt>공과금</dt><dd>전기·가스·수도 요금은 퇴실일에 보증금에서 정산 후 돌려드립니다</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="gallery" data-gallery="jigeum">
+      <figure class="big"><img src="images/sarang/16.jpg" alt="" loading="lazy"><figcaption>1층 거실</figcaption></figure>
+      <figure><img src="images/sarang/05.jpg" alt="" loading="lazy"><figcaption>거실과 식탁</figcaption></figure>
+      <figure><img src="images/sarang/06.jpg" alt="" loading="lazy"><figcaption>주방</figcaption></figure>
+      <figure><img src="images/sarang/09.jpg" alt="" loading="lazy"><figcaption>2층 침실 1</figcaption></figure>
+      <figure><img src="images/sarang/11.jpg" alt="" loading="lazy"><figcaption>2층 침실 2 · 테라스 연결</figcaption></figure>
+      <figure><img src="images/sarang/12.jpg" alt="" loading="lazy"><figcaption>테라스에서 보는 노을</figcaption></figure>
+      <figure><img src="images/sarang/03.jpg" alt="" loading="lazy"><figcaption>1층 전용 야외 데크</figcaption></figure>
+      <figure><img src="images/sarang/04.jpg" alt="" loading="lazy"><figcaption>데크에서 바비큐</figcaption></figure>
+      <figure class="more"><img src="images/sarang/10.jpg" alt="" loading="lazy"><figcaption>침실 창밖 풍경</figcaption></figure>
+      <figure class="more"><img src="images/sarang/02.jpg" alt="" loading="lazy"><figcaption>2층으로 오르는 계단</figcaption></figure>
+      <figure class="more"><img src="images/sarang/07.jpg" alt="" loading="lazy"><figcaption>식기 수납장</figcaption></figure>
+      <figure class="more"><img src="images/sarang/08.jpg" alt="" loading="lazy"><figcaption>세탁기 2대와 건조기</figcaption></figure>
+      <figure class="more"><img src="images/sarang/13.jpg" alt="" loading="lazy"><figcaption>화장실</figcaption></figure>
+      <figure class="more"><img src="images/sarang/14.jpg" alt="" loading="lazy"><figcaption>화장실</figcaption></figure>
+      <figure class="more"><img src="images/sarang/15.jpg" alt="" loading="lazy"><figcaption>외관</figcaption></figure>
+    </div>
+    <button class="more-btn" data-more="jigeum">사진 더 보기</button>
+  </div>
+</section>
+
+<!-- ================= 북촌책방 ================= -->
+<section class="house alt" id="bookstore">
+  <div class="wrap">
+    <div class="house-head">
+      <div>
+        <p class="eyebrow">HOUSE 02</p>
+        <h2>북촌책방</h2>
+        <p>이름 그대로 책이 가득한 집입니다. 2층으로 오르는 계단 벽면이 통째로 책장이라, 머무는 동안 읽고 싶은 책을 골라 천천히 쉬어 가실 수 있어요.</p>
+        <p>넓은 거실과 주방, 침실과 화장실을 갖춘 2층 독채이고, 집 앞 정원 데크에는 해먹과 의자, 저녁이면 불을 밝히는 조명이 있어 밤 시간까지 여유롭게 보내기 좋습니다.</p>
+        <p>함덕과 김녕 사이, 바로 옆에 편의점이 있어 장기 숙박에도 편리합니다.</p>
+        <div class="badges">
+          <span class="badge">계단 책장</span><span class="badge">정원 데크 · 해먹</span><span class="badge">바로 옆 편의점</span><span class="badge">화장실 2개</span>
+        </div>
+      </div>
+      <div class="facts">
+        <dl>
+          <dt>위치</dt><dd>제주시 조천읍 북촌리</dd>
+          <dt>구조</dt><dd>2층 독채 타운하우스</dd>
+          <dt>공간</dt><dd>거실, 주방, 침실, 화장실 2, 정원 데크</dd>
+          <dt>편의시설</dt><dd>인덕션, 냉장고, 기본 조리도구와 식기, 식탁</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="gallery" data-gallery="bookstore">
+      <figure class="big"><img src="images/bookstore/14.jpg" alt="" loading="lazy"><figcaption>계단을 따라 이어진 책장</figcaption></figure>
+      <figure><img src="images/bookstore/08.jpg" alt="" loading="lazy"><figcaption>거실</figcaption></figure>
+      <figure><img src="images/bookstore/29.jpg" alt="" loading="lazy"><figcaption>거실과 식탁</figcaption></figure>
+      <figure><img src="images/bookstore/17.jpg" alt="" loading="lazy"><figcaption>침실</figcaption></figure>
+      <figure><img src="images/bookstore/21.jpg" alt="" loading="lazy"><figcaption>트윈 침실 · 테라스 연결</figcaption></figure>
+      <figure><img src="images/bookstore/28.jpg" alt="" loading="lazy"><figcaption>밤의 정원 데크</figcaption></figure>
+      <figure><img src="images/bookstore/26.jpg" alt="" loading="lazy"><figcaption>해먹이 있는 데크</figcaption></figure>
+      <figure><img src="images/bookstore/09.jpg" alt="" loading="lazy"><figcaption>거실</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/15.jpg" alt="" loading="lazy"><figcaption>책장</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/13.jpg" alt="" loading="lazy"><figcaption>2층으로 오르는 계단</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/16.jpg" alt="" loading="lazy"><figcaption>소파가 있는 방</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/18.jpg" alt="" loading="lazy"><figcaption>침실</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/19.jpg" alt="" loading="lazy"><figcaption>침실 창밖</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/20.jpg" alt="" loading="lazy"><figcaption>2층 침실</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/12.jpg" alt="" loading="lazy"><figcaption>주방</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/11.jpg" alt="" loading="lazy"><figcaption>식기와 조리도구</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/10.jpg" alt="" loading="lazy"><figcaption>주방 수납</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/22.jpg" alt="" loading="lazy"><figcaption>화장실</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/23.jpg" alt="" loading="lazy"><figcaption>화장실</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/27.jpg" alt="" loading="lazy"><figcaption>정원</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/24.jpg" alt="" loading="lazy"><figcaption>입구와 정원</figcaption></figure>
+      <figure class="more"><img src="images/bookstore/25.jpg" alt="" loading="lazy"><figcaption>타운하우스 단지</figcaption></figure>
+    </div>
+    <button class="more-btn" data-more="bookstore">사진 더 보기</button>
+
+    <div class="reviews">
+      <h3>다녀가신 분들의 후기</h3>
+      <div class="review-row" data-gallery="reviews">
+        <img src="images/bookstore/01.jpg" alt="게스트 후기" loading="lazy">
+        <img src="images/bookstore/02.jpg" alt="게스트 후기" loading="lazy">
+        <img src="images/bookstore/03.jpg" alt="게스트 후기" loading="lazy">
+        <img src="images/bookstore/04.jpg" alt="게스트 후기" loading="lazy">
+        <img src="images/bookstore/05.jpg" alt="게스트 후기" loading="lazy">
+        <img src="images/bookstore/06.jpg" alt="게스트 후기" loading="lazy">
+        <img src="images/bookstore/07.jpg" alt="게스트 후기" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 예약 현황 ================= -->
+<section id="calendar">
+  <div class="wrap">
+    <p class="eyebrow">AVAILABILITY</p>
+    <h2>예약 가능 일자</h2>
+    <p style="color:var(--muted);margin:0">초록색 날짜는 예약 가능, 회색 날짜는 이미 예약된 날입니다.</p>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-house="jigeum">지금여기북촌</button>
+      <button role="tab" aria-selected="false" data-house="bookstore">북촌책방</button>
+    </div>
+    <div class="cal-nav">
+      <button id="prevM" aria-label="이전 달">‹</button>
+      <strong id="calTitle"></strong>
+      <button id="nextM" aria-label="다음 달">›</button>
+    </div>
+    <div class="months" id="months"></div>
+    <div class="legend"><span class="l-free">예약 가능</span><span class="l-booked">예약 완료</span></div>
+    <p class="cal-note">실시간 반영이 늦을 수 있으니, 정확한 일정은 문자로 확인해 주세요.</p>
+  </div>
+</section>
+
+<!-- ================= 예약 문의 ================= -->
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow">RESERVATION</p>
+    <h2 style="color:#fff">예약 문의</h2>
+    <a class="phone" href="tel:01025298609">010-2529-8609</a>
+    <p>전화보다 문자로 주시면 빠르게 답장드릴게요.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="sms:01025298609">문자 보내기</a>
+      <a class="btn btn-ghost" href="tel:01025298609">전화 걸기</a>
+    </div>
+    <div class="contact-tips">
+      문자에 아래 내용을 함께 적어 주시면 안내가 빨라요.
+      <ul>
+        <li>원하시는 숙소 (지금여기북촌 / 북촌책방)</li>
+        <li>입실일 ~ 퇴실일</li>
+        <li>인원 (아이가 있다면 나이도 함께)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">북촌사랑각 · 제주시 조천읍 북촌리 · 예약문의 010-2529-8609</div>
+</footer>
+
+<a class="fab" href="sms:01025298609">문자로 예약문의</a>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="x" aria-label="닫기">×</button>
+  <button class="prev" aria-label="이전">‹</button>
+  <img alt="">
+  <p></p>
+  <button class="next" aria-label="다음">›</button>
+</div>
+
+<script src="bookings.js"></script>
+<script>
+/* ---------- 사진 더보기 ---------- */
+document.querySelectorAll('[data-more]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const g=document.querySelector(`.gallery[data-gallery="${btn.dataset.more}"]`);
+    g.classList.toggle('open');
+    btn.textContent=g.classList.contains('open')?'접기':'사진 더 보기';
+  });
+});
+
+/* ---------- 라이트박스 ---------- */
+(function(){
+  const lb=document.getElementById('lb'), img=lb.querySelector('img'), cap=lb.querySelector('p');
+  let list=[], idx=0;
+  function show(){img.src=list[idx].src;cap.textContent=list[idx].cap||'';}
+  function open(items,i){list=items;idx=i;show();lb.classList.add('on');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('on');document.body.style.overflow='';}
+  document.querySelectorAll('[data-gallery]').forEach(g=>{
+    const imgs=[...g.querySelectorAll('img')];
+    imgs.forEach((el,i)=>el.addEventListener('click',()=>{
+      const items=imgs.map(x=>({src:x.src,cap:x.closest('figure')?.querySelector('figcaption')?.textContent}));
+      open(items,i);
+    }));
+  });
+  lb.querySelector('.x').onclick=close;
+  lb.querySelector('.prev').onclick=e=>{e.stopPropagation();idx=(idx-1+list.length)%list.length;show();};
+  lb.querySelector('.next').onclick=e=>{e.stopPropagation();idx=(idx+1)%list.length;show();};
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')lb.querySelector('.prev').click();
+    if(e.key==='ArrowRight')lb.querySelector('.next').click();
+  });
+})();
+
+/* ---------- 예약 캘린더 ---------- */
+(function(){
+  const DOW=['일','월','화','수','목','금','토'];
+  const pad=n=>String(n).padStart(2,'0');
+  const key=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+  const today=new Date(); today.setHours(0,0,0,0);
+  const MAX_AHEAD=12; // 앞으로 몇 달까지 보여줄지
+  let house='jigeum', offset=0;
+  const booked={jigeum:new Set(), bookstore:new Set()};
+
+  function addRange(set,start,end){ // end = 체크아웃(미포함)
+    const d=new Date(start+'T00:00:00'), e=new Date(end+'T00:00:00');
+    while(d<e){set.add(key(d));d.setDate(d.getDate()+1);}
+  }
+  function loadLocal(){
+    const B=window.BOOKINGS||{};
+    for(const h of Object.keys(booked)) (B[h]||[]).forEach(([s,e])=>addRange(booked[h],s,e));
+  }
+  async function loadGoogle(){
+    const G=window.GOOGLE_CALENDAR; if(!G||!G.apiKey) return;
+    const tMin=new Date(today); const tMax=new Date(today); tMax.setMonth(tMax.getMonth()+MAX_AHEAD+1);
+    await Promise.all(Object.entries(G.calendars||{}).map(async([h,id])=>{
+      if(!id) return;
+      try{
+        const url=`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(id)}/events?key=${G.apiKey}&singleEvents=true&maxResults=2500&timeMin=${tMin.toISOString()}&timeMax=${tMax.toISOString()}`;
+        const r=await fetch(url); const j=await r.json();
+        (j.items||[]).forEach(ev=>{
+          const s=ev.start.date||ev.start.dateTime?.slice(0,10);
+          let e=ev.end.date||ev.end.dateTime?.slice(0,10);
+          if(s===e){const x=new Date(e+'T00:00:00');x.setDate(x.getDate()+1);e=key(x);}
+          if(s&&e) addRange(booked[h],s,e);
+        });
+      }catch(err){console.warn('구글 캘린더 불러오기 실패',err);}
+    }));
+  }
+
+  function monthEl(y,m){
+    const wrap=document.createElement('div'); wrap.className='month';
+    wrap.innerHTML=`<h4>${y}년 ${m+1}월</h4>`;
+    const g=document.createElement('div'); g.className='grid7';
+    DOW.forEach(d=>{const s=document.createElement('div');s.className='dow';s.textContent=d;g.appendChild(s);});
+    const first=new Date(y,m,1).getDay(), days=new Date(y,m+1,0).getDate();
+    for(let i=0;i<first;i++){const s=document.createElement('div');s.className='day empty';g.appendChild(s);}
+    for(let d=1;d<=days;d++){
+      const dt=new Date(y,m,d), s=document.createElement('div');
+      s.textContent=d; s.className='day';
+      if(dt<today) s.classList.add('past');
+      else if(booked[house].has(key(dt))) {s.classList.add('booked');s.title='예약 완료';}
+      else s.title='예약 가능';
+      if(+dt===+today) s.classList.add('today');
+      g.appendChild(s);
+    }
+    wrap.appendChild(g); return wrap;
+  }
+  function render(){
+    const box=document.getElementById('months'); box.innerHTML='';
+    const a=new Date(today.getFullYear(),today.getMonth()+offset,1);
+    const b=new Date(a.getFullYear(),a.getMonth()+1,1);
+    box.appendChild(monthEl(a.getFullYear(),a.getMonth()));
+    box.appendChild(monthEl(b.getFullYear(),b.getMonth()));
+    document.getElementById('calTitle').textContent=house==='jigeum'?'지금여기북촌':'북촌책방';
+    document.getElementById('prevM').disabled=offset<=0;
+    document.getElementById('nextM').disabled=offset>=MAX_AHEAD-1;
+  }
+  document.getElementById('prevM').onclick=()=>{offset=Math.max(0,offset-1);render();};
+  document.getElementById('nextM').onclick=()=>{offset=Math.min(MAX_AHEAD-1,offset+1);render();};
+  document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+    house=b.dataset.house;
+    document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+    render();
+  });
+  loadLocal(); render();
+  loadGoogle().then(render);
+})();
+</script>
+</body>
+</html>
