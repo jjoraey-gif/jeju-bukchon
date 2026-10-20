@@ -224,8 +224,6 @@
   .review-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
   .review-row img{flex:0 0 auto;width:300px;height:auto;max-height:260px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:10px;scroll-snap-align:start;cursor:zoom-in}
 
-  /* calendar */
-
   /* pricing */
   #pricing{border-top:1px solid var(--line)}
   .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
@@ -241,30 +239,6 @@
   .price-row .amt{font-size:22px;font-weight:700;color:var(--sea);white-space:nowrap}
   .price-row .amt span{font-size:15px;font-weight:500;margin-left:2px}
   .price-notes{margin:20px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
-  #calendar{background:var(--surface)}
-  .tabs{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;margin:20px 0 26px}
-  .tabs button{border:0;background:none;font:inherit;font-size:15px;padding:8px 18px;border-radius:999px;cursor:pointer;color:var(--muted)}
-  .tabs button[aria-selected="true"]{background:var(--sea);color:#fff}
-  .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-  .cal-nav button{border:1px solid var(--line);background:var(--surface);width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--ink)}
-  .cal-nav button:disabled{opacity:.3;cursor:default}
-  .months{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:860px;margin:0 auto}
-  @media (max-width:720px){.months{grid-template-columns:1fr}}
-  .month h4{text-align:center;margin:0 0 10px;font-size:17px}
-  .grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
-  .grid7 .dow{font-size:12.5px;color:var(--muted);padding:4px 0}
-  .grid7 .dow:first-child{color:#c0504d}
-  .day{height:42px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:14.5px;background:var(--sea-soft);color:var(--sea);font-weight:500}
-  .day.empty{background:none}
-  .day.past{background:none;color:#cfcac2;font-weight:400}
-  .day.booked{background:var(--booked);color:var(--booked-ink);text-decoration:line-through;font-weight:400}
-  .day.today{outline:2px solid var(--accent);outline-offset:-2px}
-  .legend{display:flex;gap:18px;justify-content:center;margin-top:20px;font-size:13.5px;color:var(--muted)}
-  .legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-  .legend .l-free::before{background:var(--sea-soft);border:1px solid var(--sea)}
-  .legend .l-booked::before{background:var(--booked)}
-  .cal-note{text-align:center;color:var(--muted);font-size:14px;margin-top:10px}
-
   /* contact */
   #contact{background:var(--sea);color:#fff;text-align:center}
   #contact .eyebrow{color:#bfe0dd}
@@ -301,7 +275,6 @@
       <a href="#sarang">북촌사랑각</a>
       <a href="#bookstore">북촌책방</a>
       <a href="#pricing">이용요금</a>
-      <a href="#calendar">예약현황</a>
       <a class="nav-cta" href="#contact">예약문의</a>
     </nav>
   </div>
@@ -314,7 +287,7 @@
     <h1>제주 북촌리,<br>우리 가족만의 2층 독채</h1>
     <p class="lead">함덕해수욕장 차로 5분. 바다가 보이는 독채 타운하우스에서 한 주, 한 달 머물러 보세요.</p>
     <div class="btns">
-      <a class="btn btn-primary" href="#calendar">예약 가능일 보기</a>
+      <a class="btn btn-primary" href="#pricing">이용요금 보기</a>
       <a class="btn btn-ghost" href="#contact">문자로 문의하기</a>
     </div>
   </div>
@@ -500,27 +473,6 @@
   </div>
 </section>
 
-<!-- ================= 예약 현황 ================= -->
-<section id="calendar">
-  <div class="wrap">
-    <p class="eyebrow">AVAILABILITY</p>
-    <h2>예약 가능 일자</h2>
-    <p style="color:var(--muted);margin:0">초록색 날짜는 예약 가능, 회색 날짜는 이미 예약된 날입니다.</p>
-    <div class="tabs" role="tablist">
-      <button role="tab" aria-selected="true" data-house="sarang">북촌사랑각</button>
-      <button role="tab" aria-selected="false" data-house="bookstore">북촌책방</button>
-    </div>
-    <div class="cal-nav">
-      <button id="prevM" aria-label="이전 달">‹</button>
-      <strong id="calTitle"></strong>
-      <button id="nextM" aria-label="다음 달">›</button>
-    </div>
-    <div class="months" id="months"></div>
-    <div class="legend"><span class="l-free">예약 가능</span><span class="l-booked">예약 완료</span></div>
-    <p class="cal-note">실시간 반영이 늦을 수 있으니, 정확한 일정은 문자로 확인해 주세요.</p>
-  </div>
-</section>
-
 <!-- ================= 예약 문의 ================= -->
 <section id="contact">
   <div class="wrap">
@@ -565,8 +517,6 @@
   <button class="next" aria-label="다음">›</button>
 </div>
 
-<script src="config.js"></script>
-<script src="bookings.js"></script>
 <script>
 /* ---------- 사진 더보기 ---------- */
 document.querySelectorAll('[data-more]').forEach(btn=>{
@@ -603,89 +553,7 @@ document.querySelectorAll('[data-more]').forEach(btn=>{
   });
 })();
 
-/* ---------- 예약 캘린더 ---------- */
-(function(){
-  const DOW=['일','월','화','수','목','금','토'];
-  const pad=n=>String(n).padStart(2,'0');
-  const key=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-  const today=new Date(); today.setHours(0,0,0,0);
-  const MAX_AHEAD=12; // 앞으로 몇 달까지 보여줄지
-  let house='sarang', offset=0;
-  const booked={sarang:new Set(), bookstore:new Set()};
 
-  function addRange(set,start,end){ // end = 체크아웃(미포함)
-    const d=new Date(start+'T00:00:00'), e=new Date(end+'T00:00:00');
-    while(d<e){set.add(key(d));d.setDate(d.getDate()+1);}
-  }
-  function loadLocal(){
-    const B=window.BOOKINGS||{};
-    for(const h of Object.keys(booked)) (B[h]||[]).forEach(([s,e])=>addRange(booked[h],s,e));
-  }
-  async function loadGoogle(){
-    const G=window.GOOGLE_CALENDAR; if(!G||!G.apiKey) return;
-    const tMin=new Date(today); const tMax=new Date(today); tMax.setMonth(tMax.getMonth()+MAX_AHEAD+1);
-    await Promise.all(Object.entries(G.calendars||{}).map(async([h,id])=>{
-      if(!id) return;
-      try{
-        const url=`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(id)}/events?key=${G.apiKey}&singleEvents=true&maxResults=2500&timeMin=${tMin.toISOString()}&timeMax=${tMax.toISOString()}`;
-        const r=await fetch(url); const j=await r.json();
-        (j.items||[]).forEach(ev=>{
-          const s=ev.start.date||ev.start.dateTime?.slice(0,10);
-          let e=ev.end.date||ev.end.dateTime?.slice(0,10);
-          if(s===e){const x=new Date(e+'T00:00:00');x.setDate(x.getDate()+1);e=key(x);}
-          if(s&&e) addRange(booked[h],s,e);
-        });
-      }catch(err){console.warn('구글 캘린더 불러오기 실패',err);}
-    }));
-  }
-
-  function monthEl(y,m){
-    const wrap=document.createElement('div'); wrap.className='month';
-    wrap.innerHTML=`<h4>${y}년 ${m+1}월</h4>`;
-    const g=document.createElement('div'); g.className='grid7';
-    DOW.forEach(d=>{const s=document.createElement('div');s.className='dow';s.textContent=d;g.appendChild(s);});
-    const first=new Date(y,m,1).getDay(), days=new Date(y,m+1,0).getDate();
-    for(let i=0;i<first;i++){const s=document.createElement('div');s.className='day empty';g.appendChild(s);}
-    for(let d=1;d<=days;d++){
-      const dt=new Date(y,m,d), s=document.createElement('div');
-      s.textContent=d; s.className='day';
-      if(dt<today) s.classList.add('past');
-      else if(booked[house].has(key(dt))) {s.classList.add('booked');s.title='예약 완료';}
-      else s.title='예약 가능';
-      if(+dt===+today) s.classList.add('today');
-      g.appendChild(s);
-    }
-    wrap.appendChild(g); return wrap;
-  }
-  function render(){
-    const box=document.getElementById('months'); box.innerHTML='';
-    const a=new Date(today.getFullYear(),today.getMonth()+offset,1);
-    const b=new Date(a.getFullYear(),a.getMonth()+1,1);
-    box.appendChild(monthEl(a.getFullYear(),a.getMonth()));
-    box.appendChild(monthEl(b.getFullYear(),b.getMonth()));
-    document.getElementById('calTitle').textContent=house==='sarang'?'북촌사랑각':'북촌책방';
-    document.getElementById('prevM').disabled=offset<=0;
-    document.getElementById('nextM').disabled=offset>=MAX_AHEAD-1;
-  }
-  document.getElementById('prevM').onclick=()=>{offset=Math.max(0,offset-1);render();};
-  document.getElementById('nextM').onclick=()=>{offset=Math.min(MAX_AHEAD-1,offset+1);render();};
-  document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
-    house=b.dataset.house;
-    document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
-    render();
-  });
-  async function loadSupabase(){
-    const C=window.SUPABASE_CONFIG; if(!C||!C.url||!C.anonKey) return;
-    try{
-      const r=await fetch(`${C.url}/rest/v1/bukchon_blocked_dates?select=house,day&day=gte.${key(today)}&limit=5000`,
-        {headers:{apikey:C.anonKey,Authorization:`Bearer ${C.anonKey}`}});
-      const rows=await r.json();
-      (Array.isArray(rows)?rows:[]).forEach(x=>{ if(booked[x.house]) booked[x.house].add(x.day); });
-    }catch(err){console.warn('예약 현황 불러오기 실패',err);}
-  }
-  loadLocal(); render();
-  Promise.all([loadSupabase(),loadGoogle()]).then(render);
-})();
 </script>
 </body>
 </html>
